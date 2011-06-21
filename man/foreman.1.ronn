@@ -81,7 +81,7 @@ These options control all modes of foreman's operation.
 foreman currently supports the following output formats:
 
   * inittab
-
+  * supervisor
   * upstart
 
 ## INITTAB EXPORT
@@ -92,6 +92,14 @@ Will export a chunk of inittab-compatible configuration:
     EX01:4:respawn:/bin/su - example -c 'PORT=5000 bundle exec thin start >> /var/log/web-1.log 2>&1'
     EX02:4:respawn:/bin/su - example -c 'PORT=5100 bundle exec rake jobs:work >> /var/log/job-1.log 2>&1'
     # ----- end foreman example processes -----
+
+## SUPERVISOR EXPORT
+
+Will create a series of supervisor groups and programs. The following commands will be valid:
+
+  `supervisorctl start appname`
+
+  `supervisorctl stop appname-processname`
 
 ## UPSTART EXPORT
 

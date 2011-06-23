@@ -37,8 +37,9 @@ class Foreman::CLI < Thor
     check_procfile!
 
     formatter = case format
-      when "inittab" then Foreman::Export::Inittab
-      when "upstart" then Foreman::Export::Upstart
+      when "inittab"    then Foreman::Export::Inittab
+      when "supervisor" then Foreman::Export::Supervisor
+      when "upstart"    then Foreman::Export::Upstart
       else error "Unknown export format: #{format}."
     end
 

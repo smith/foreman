@@ -1,0 +1,12 @@
+[program:<%= app %>-<%= program.name %>]
+command=<%= program.command %>
+<% if num_procs > 1 %>
+process_name=%(program_name)-%(process_num)
+num_procs=<%= num_procs %>
+<% end %>
+directory=<%= engine.directory %>
+<% if user %>user=<%= user %><% end %>
+<% if log_root %>
+stdout_logfile=<%= log_root %>/%(program_name)-%(process_num)-stdout.log
+stderr_logfile=<%= log_root %>/%(program_name)-%(process_num)-stderr.log
+<% end %>
